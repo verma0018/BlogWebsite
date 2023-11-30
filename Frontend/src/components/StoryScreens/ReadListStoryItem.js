@@ -49,12 +49,12 @@ const ReadListStoryItem = ({ story, editDate }) => {
                         <span>
                             Read More
                         </span>
-                        <span>
+                        {/* <span>
                             -
-                        </span>
-                        <span>
+                        </span> */}
+                        {/* <span>
                             {story.readtime} min read
-                        </span>
+                        </span> */}
                     </a>
 
                     <div>

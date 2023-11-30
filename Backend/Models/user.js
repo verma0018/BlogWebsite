@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const bcrypt = require("bcryptjs")
 
 const jwt = require("jsonwebtoken")
+require("dotenv").config();
 
 const UserSchema = new mongoose.Schema({
 
@@ -64,10 +65,9 @@ UserSchema.pre("save" , async function (next) {
 
 UserSchema.methods.generateJwtFromUser  = function(){
     
-    // const { JWT_SECRET_KEY,JWT_EXPIRE } = process.env;
-    const JWT_EXPIRE = '1h';
-    const JWT_SECRET_KEY = 'hellomynameistusharvermaandthisproject';
-
+    const { JWT_SECRET_KEY,JWT_EXPIRE } = process.env;
+    // const JWT_EXPIRE = '1h';
+    // const JWT_SECRET_KEY = 'hellomynameistusharvermaandthisproject';
     payload = {
         id: this._id,
         username : this.username,
@@ -75,7 +75,6 @@ UserSchema.methods.generateJwtFromUser  = function(){
     }
 
     const token = jwt.sign(payload ,JWT_SECRET_KEY, {expiresIn :JWT_EXPIRE} )
-
     return token 
 }
 

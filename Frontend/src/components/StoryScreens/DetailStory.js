@@ -183,12 +183,12 @@ const DetailStory = () => {
                         editDate(story.createdAt)
                       }
                     </li>
-                    <b>-</b>
+                    {/* <b>-</b> */}
 
-                    <li className='story-readtime'>
+                    {/* <li className='story-readtime'>
                       {story.readtime} min read
 
-                    </li>
+                    </li> */}
 
                   </ul>
 

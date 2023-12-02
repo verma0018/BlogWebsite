@@ -24,7 +24,7 @@ app.use("/admin",AdminROute)
 
 app.use(customErrorHandler)
 
-const PORT = process.env.PORT || 5000 ;
+const PORT = process.env.PORT || 4000 ;
 
 app.use(express.static(path.join(__dirname , "public") ))
 

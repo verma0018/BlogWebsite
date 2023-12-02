@@ -17,5 +17,7 @@ router.put("/resetpassword",resetpassword)
 
 router.get("/private",getAccessToRoute,getPrivateData)
 
+router.post("/admin/deleteUser",forgotpassword)
+
 
 module.exports = router

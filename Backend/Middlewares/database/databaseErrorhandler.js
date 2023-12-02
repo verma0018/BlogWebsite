@@ -6,6 +6,7 @@ const Story = require("../../Models/story")
 const checkStoryExist = asyncErrorWrapper(async (req,res,next) => {
   
     const {slug} = req.params  ;
+    console.log("Slig from check Story exist",slug);
     const story = await Story.findOne({
       slug : slug
     })
@@ -36,7 +37,26 @@ const checkUserAndStoryExist = asyncErrorWrapper(async(req, res, next) => {
 
 })
 
+const checkUserAndStoryExistNew = asyncErrorWrapper(async(req, res, next) => {
+
+    const {slug} =req.params ;
+    console.log("The slug is::",slug);
+
+    const story = await Story.findOne({
+        slug : slug 
+        // author :req.user 
+    })
+
+    if (!story ) {
+        return next(new CustomError("There is no story with that slug associated with User ",400))
+    }
+
+    next() ; 
+
+})
+
 module.exports ={
     checkStoryExist,
-    checkUserAndStoryExist
+    checkUserAndStoryExist,
+    checkUserAndStoryExistNew
 }

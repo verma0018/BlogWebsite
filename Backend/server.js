@@ -4,6 +4,7 @@ const cors = require("cors")
 const path = require("path")
 
 const IndexRoute = require("./Routers/index")
+const AdminROute = require("./Routers/adminIndex")
 const connectDatabase = require("./Helpers/database/connectDatabase")
 const customErrorHandler = require("./Middlewares/Errors/customErrorHandler")
 
@@ -19,6 +20,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use("/",IndexRoute)
+app.use("/admin",AdminROute)
 
 app.use(customErrorHandler)
 

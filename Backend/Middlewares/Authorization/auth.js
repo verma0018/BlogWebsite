@@ -18,7 +18,7 @@ const getAccessToRoute = asyncErrorWrapper(async(req,res,next) =>{
     const accessToken = getAccessTokenFromHeader(req)
     const decoded = jwt.verify(accessToken,JWT_SECRET_KEY) ;
     const user = await User.findById(decoded.id)
-    console.log("user",user);
+    console.log("The user is ",user);
     if(!user) {
         return next(new CustomError("You are not authorized to access this route ", 401))
     }

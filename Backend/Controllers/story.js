@@ -167,10 +167,12 @@ const editStory  =asyncErrorWrapper(async(req,res,next)=>{
 })
 
 const deleteStory  =asyncErrorWrapper(async(req,res,next)=>{
-
+    console.log("Entered")    
     const {slug} = req.params  ;
 
     const story = await Story.findOne({slug : slug })
+    console.log("Slug from deleteStory",slug);
+    console.log("Story from deleteStory",story);
 
     deleteImageFile(req,story.image) ; 
 

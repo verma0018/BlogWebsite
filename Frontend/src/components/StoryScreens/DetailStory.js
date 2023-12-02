@@ -126,6 +126,28 @@ const DetailStory = () => {
 
   }
 
+  const handleAdminDelete = async () => {
+
+    if (window.confirm("Do you want to delete this post")) {
+
+      try {
+
+        await axios.delete(`/story/${slug}/deleteAdmin`, {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        })
+        navigate("/")
+        
+      }
+      catch (error) {
+        console.log(error)
+      }
+
+    }
+
+  }
 
   const editDate = (createdAt) => {
 
@@ -209,12 +231,20 @@ const DetailStory = () => {
                   }
 
                   {activeUser && story.author &&
-                    story.author._id === activeUser._id ?
+                    (story.author._id === activeUser._id) ?
                     <div className="top_story_transactions">
                       <Link className='editStoryLink' to={`/story/${story.slug}/edit`}>
                         <FiEdit />
                       </Link>
                       <span className='deleteStoryLink' onClick={handleDelete}>
+                        <RiDeleteBin6Line />
+                      </span>
+                    </div> : null
+                  }
+                  {activeUser && story.author &&
+                    (activeUser.role==="admin") ?
+                    <div className="top_story_transactions">
+                      <span className='deleteStoryLink' onClick={handleAdminDelete}>
                         <RiDeleteBin6Line />
                       </span>
                     </div> : null

@@ -112,6 +112,10 @@ const forgotpassword  = asyncErrorWrapper( async (req,res,next) => {
 
 })
 
+const deleteUser = async (req,res,next)=>{
+    console.log("Entered");
+}
+
 
 const resetpassword  =asyncErrorWrapper(  async (req,res,next) => {
 

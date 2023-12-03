@@ -88,6 +88,7 @@ a.story-link {
   border: 3px solid rgb(255, 170, 0);
   box-shadow: 0 0 10px 5px rgba(88, 88, 88, 0.1);
   object-fit: contain;
+  background-color: rgba(80, 79, 79, 0.298);
 }
 
 .story-card .story-content-wrapper {

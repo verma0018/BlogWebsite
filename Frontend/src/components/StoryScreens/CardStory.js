@@ -35,7 +35,6 @@ const Story = ({ story }) => {
                 ? truncateTitle(story.title) + "..."
                 : story.title}
             </h5>
-
             <p
               className="story-text"
               dangerouslySetInnerHTML={{

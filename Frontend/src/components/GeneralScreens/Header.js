@@ -38,7 +38,8 @@ const Header = () => {
 
                 <Link to="/" className="logo">
                     <h5>
-                        BLOG-APP
+                        {/* BLOG-APP */}
+                        <img className='something' src="/photos/logo-blog.png"></img>
 
                     </h5>
                 </Link>
@@ -49,7 +50,7 @@ const Header = () => {
                         <div className="auth_options">
 
 
-                            <Link className='addStory-link' to="/addstory"><RiPencilFill /> Add Story </Link>
+                            <Link className='addStory-link' to="/addstory"> Add Blog </Link>
 
 
                             <Link to="/readList" className='readList-link'>
@@ -87,7 +88,7 @@ const Header = () => {
 
                             <Link className='login-link' to="/login"> Login </Link>
 
-                            <Link className='register-link' to="/register"> Get Started</Link>
+                            <Link className='register-link' to="/register"> Sign Up</Link>
                         </div>
 
                     }
